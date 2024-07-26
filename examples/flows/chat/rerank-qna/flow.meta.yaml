@@ -1,0 +1,11 @@
+$schema: https://azuremlschemas.azureedge.net/latest/flow.schema.json
+name: index_data_rerank_qna
+display_name: Index Data Rerank Q&A
+type: standard
+path: ./flow.dag.yaml
+description: Use LLM and reranked data from your own index to ground question and answering capabilities.
+properties:
+  promptflow.stage: prod
+  promptflow.details.type: markdown
+  promptflow.details.source: README.md
+  promptflow.batch_inputs: samples.json

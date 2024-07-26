@@ -1,0 +1,52 @@
+id: index_data_rerank_qna
+name: Index Data Rerank QnA
+inputs:
+  query:
+    type: string
+    default: ""
+    is_chat_input: false
+outputs:
+  answer:
+    type: string
+    reference: ${llm.output}
+nodes:
+- name: lookup
+  type: python
+  source:
+    type: package
+    tool: promptflow_vectordb.tool.common_index_lookup.search
+  inputs:
+    queries: ${inputs.query}
+    top_k: 3
+  use_variants: false
+- name: rerank
+  type: python
+  source:
+    type: package
+    tool: promptflow_vectordb.tool.rerank.rerank
+  inputs:
+    query: ${inputs.query}
+    result_groups: ${lookup.output}
+    top_k: 3
+  use_variants: false
+- name: extract_text
+  type: python
+  source:
+    type: code
+    path: extract_text.py
+  inputs:
+    results: ${rerank.output}
+  use_variants: false
+- name: llm
+  type: llm
+  source:
+    type: code
+    path: llm.jinja2
+  inputs:
+    question: ${inputs.query}
+    sources: ${extract_text.output}
+  use_variants: false
+node_variants: {}
+environment:
+  python_requirements_txt: requirements.txt
+  image: 2bf2852be9c74fb9b7f0f33d76ce8843.azurecr.io/azureml/azureml_d403cbd9596743a7cd984ba5bca76583:latest

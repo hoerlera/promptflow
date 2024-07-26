@@ -1,0 +1,11 @@
+$schema: https://azuremlschemas.azureedge.net/latest/flow.schema.json
+name: multiple_rerank_qna
+display_name: Multi-Source Rerank Q&A
+type: standard
+path: ./flow.dag.yaml
+description: Use LLM and reranked data from multiple indices to ground question and answering capabilities.
+properties:
+  promptflow.stage: prod
+  promptflow.details.type: markdown
+  promptflow.details.source: README.md
+  promptflow.batch_inputs: samples.json
