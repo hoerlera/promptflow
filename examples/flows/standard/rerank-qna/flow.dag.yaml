@@ -55,6 +55,10 @@ nodes:
     question: ${inputs.query}
     sources: ${extract_text.output}
   use_variants: false
+  provider: AzureOpenAI
+  connection: ''
+  api: chat
+  module: promptflow.tools.aoai
 node_variants: {}
 environment:
   python_requirements_txt: requirements.txt
