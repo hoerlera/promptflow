@@ -16,7 +16,9 @@ nodes:
     type: package
     tool: promptflow_vectordb.tool.common_index_lookup.search
   inputs:
+    mlindex_content: ''
     queries: ${inputs.query}
+    query_type: ''
     top_k: 3
   use_variants: false
 - name: rerank
@@ -26,6 +28,7 @@ nodes:
     tool: promptflow_vectordb.tool.rerank.rerank
   inputs:
     query: ${inputs.query}
+    ranker_parameters: ''
     result_groups: ${lookup.output}
     top_k: 3
   use_variants: false
@@ -43,6 +46,12 @@ nodes:
     type: code
     path: llm.jinja2
   inputs:
+    deployment_name: ''
+    temperature: 0
+    top_p: 1
+    max_tokens: 1000
+    presence_penalty: 0
+    frequency_penalty: 0
     question: ${inputs.query}
     sources: ${extract_text.output}
   use_variants: false
