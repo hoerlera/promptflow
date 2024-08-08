@@ -176,161 +176,6 @@
           "is_multi_select": false,
           "input_type": "uionly_hidden"
         },
-        "cosmosdb_nosql_connection": {
-          "type": [
-            "string"
-          ],
-          "enabled_by": "index_type",
-          "enabled_by_value": [
-            "Azure CosmosDB for NoSQL"
-          ],
-          "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_cosmosdb_nosql_connections"
-          },
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "uionly_hidden"
-        },
-        "cosmosdb_nosql_container_name": {
-          "type": [
-            "string"
-          ],
-          "enabled_by": "index_type",
-          "enabled_by_value": [
-            "Azure CosmosDB for NoSQL"
-          ],
-          "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_cosmosdb_containers",
-            "func_kwargs": [
-              {
-                "name": "cosmosdb_nosql_connection",
-                "optional": false,
-                "reference": "${inputs.cosmosdb_nosql_connection}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "cosmosdb_nosql_database_name",
-                "optional": false,
-                "reference": "${inputs.cosmosdb_nosql_database_name}",
-                "type": [
-                  "string"
-                ]
-              }
-            ]
-          },
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "uionly_hidden"
-        },
-        "cosmosdb_nosql_content_field": {
-          "type": [
-            "string"
-          ],
-          "enabled_by": "index_type",
-          "enabled_by_value": [
-            "Azure CosmosDB for NoSQL"
-          ],
-          "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_cosmosdb_nosql_content_fields",
-            "func_kwargs": [
-              {
-                "name": "cosmosdb_nosql_connection",
-                "optional": false,
-                "reference": "${inputs.cosmosdb_nosql_connection}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "cosmosdb_nosql_database_name",
-                "optional": false,
-                "reference": "${inputs.cosmosdb_nosql_database_name}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "cosmosdb_nosql_container_name",
-                "optional": false,
-                "reference": "${inputs.cosmosdb_nosql_container_name}",
-                "type": [
-                  "string"
-                ]
-              }
-            ]
-          },
-          "allow_manual_entry": true,
-          "is_multi_select": false,
-          "input_type": "uionly_hidden"
-        },
-        "cosmosdb_nosql_database_name": {
-          "type": [
-            "string"
-          ],
-          "enabled_by": "index_type",
-          "enabled_by_value": [
-            "Azure CosmosDB for NoSQL"
-          ],
-          "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_cosmosdb_databases",
-            "func_kwargs": [
-              {
-                "name": "cosmosdb_nosql_connection",
-                "optional": false,
-                "reference": "${inputs.cosmosdb_nosql_connection}",
-                "type": [
-                  "string"
-                ]
-              }
-            ]
-          },
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "uionly_hidden"
-        },
-        "cosmosdb_nosql_embedding_field": {
-          "type": [
-            "string"
-          ],
-          "enabled_by": "index_type",
-          "enabled_by_value": [
-            "Azure CosmosDB for NoSQL"
-          ],
-          "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_cosmosdb_nosql_embedding_fields",
-            "func_kwargs": [
-              {
-                "name": "cosmosdb_nosql_connection",
-                "optional": false,
-                "reference": "${inputs.cosmosdb_nosql_connection}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "cosmosdb_nosql_database_name",
-                "optional": false,
-                "reference": "${inputs.cosmosdb_nosql_database_name}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "cosmosdb_nosql_container_name",
-                "optional": false,
-                "reference": "${inputs.cosmosdb_nosql_container_name}",
-                "type": [
-                  "string"
-                ]
-              }
-            ]
-          },
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "uionly_hidden"
-        },
         "embedding_deployment": {
           "type": [
             "string"
@@ -390,14 +235,9 @@
           "enabled_by_value": [
             "Azure AI Search",
             "Azure CosmosDB for MongoDB vCore",
-            "Azure CosmosDB for NoSQL",
-            "Azure CosmosDB for PostgreSQL",
             "FAISS",
             "Pinecone",
-            "Elasticsearch",
-            "Qdrant",
-            "Weaviate",
-            "MongoDB"
+            "Elasticsearch"
           ],
           "dynamic_list": {
             "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_available_embedding_types",
@@ -722,14 +562,6 @@
                 ]
               },
               {
-                "name": "pinecone_index_namespace",
-                "optional": true,
-                "reference": "${inputs.pinecone_index_namespace}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
                 "name": "pinecone_content_field",
                 "optional": true,
                 "reference": "${inputs.pinecone_content_field}",
@@ -786,38 +618,6 @@
                 ]
               },
               {
-                "name": "qdrant_index_connection",
-                "optional": true,
-                "reference": "${inputs.qdrant_index_connection}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "qdrant_index_name",
-                "optional": true,
-                "reference": "${inputs.qdrant_index_name}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "qdrant_content_field",
-                "optional": true,
-                "reference": "${inputs.qdrant_content_field}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "qdrant_embedding_field",
-                "optional": true,
-                "reference": "${inputs.qdrant_embedding_field}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
                 "name": "mongodb_connection",
                 "optional": true,
                 "reference": "${inputs.mongodb_connection}",
@@ -850,14 +650,6 @@
                 ]
               },
               {
-                "name": "mongodb_search_index",
-                "optional": true,
-                "reference": "${inputs.mongodb_search_index}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
                 "name": "mongodb_content_field",
                 "optional": true,
                 "reference": "${inputs.mongodb_content_field}",
@@ -869,118 +661,6 @@
                 "name": "mongodb_embedding_field",
                 "optional": true,
                 "reference": "${inputs.mongodb_embedding_field}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "weaviate_connection",
-                "optional": true,
-                "reference": "${inputs.weaviate_connection}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "weaviate_collection",
-                "optional": true,
-                "reference": "${inputs.weaviate_collection}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "weaviate_content_field",
-                "optional": true,
-                "reference": "${inputs.weaviate_content_field}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "weaviate_embedding_field",
-                "optional": true,
-                "reference": "${inputs.weaviate_embedding_field}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "postgres_connection",
-                "optional": true,
-                "reference": "${inputs.postgres_connection}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "postgres_table_name",
-                "optional": true,
-                "reference": "${inputs.postgres_table_name}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "postgres_search_type",
-                "optional": true,
-                "reference": "${inputs.postgres_search_type}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "postgres_content_field",
-                "optional": true,
-                "reference": "${inputs.postgres_content_field}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "postgres_embedding_field",
-                "optional": true,
-                "reference": "${inputs.postgres_embedding_field}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "cosmosdb_nosql_connection",
-                "optional": true,
-                "reference": "${inputs.cosmosdb_nosql_connection}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "cosmosdb_nosql_database_name",
-                "optional": true,
-                "reference": "${inputs.cosmosdb_nosql_database_name}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "cosmosdb_nosql_container_name",
-                "optional": true,
-                "reference": "${inputs.cosmosdb_nosql_container_name}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "cosmosdb_nosql_content_field",
-                "optional": true,
-                "reference": "${inputs.cosmosdb_nosql_content_field}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "cosmosdb_nosql_embedding_field",
-                "optional": true,
-                "reference": "${inputs.cosmosdb_nosql_embedding_field}",
                 "type": [
                   "string"
                 ]
@@ -1056,8 +736,7 @@
           ],
           "enabled_by": "index_type",
           "enabled_by_value": [
-            "Azure CosmosDB for MongoDB vCore",
-            "MongoDB"
+            "Azure CosmosDB for MongoDB vCore"
           ],
           "dynamic_list": {
             "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_mongodb_collections",
@@ -1077,13 +756,6 @@
                 "type": [
                   "string"
                 ]
-              },
-              {
-                "name": "index_type",
-                "reference": "${inputs.index_type}",
-                "type": [
-                  "string"
-                ]
               }
             ]
           },
@@ -1097,20 +769,10 @@
           ],
           "enabled_by": "index_type",
           "enabled_by_value": [
-            "Azure CosmosDB for MongoDB vCore",
-            "MongoDB"
+            "Azure CosmosDB for MongoDB vCore"
           ],
           "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_mongodb_connections",
-            "func_kwargs": [
-              {
-                "name": "index_type",
-                "reference": "${inputs.index_type}",
-                "type": [
-                  "string"
-                ]
-              }
-            ]
+            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_mongodb_connections"
           },
           "allow_manual_entry": false,
           "is_multi_select": false,
@@ -1122,8 +784,7 @@
           ],
           "enabled_by": "index_type",
           "enabled_by_value": [
-            "Azure CosmosDB for MongoDB vCore",
-            "MongoDB"
+            "Azure CosmosDB for MongoDB vCore"
           ],
           "dynamic_list": {
             "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_mongodb_index_fields",
@@ -1159,13 +820,6 @@
                 "type": [
                   "string"
                 ]
-              },
-              {
-                "name": "index_type",
-                "reference": "${inputs.index_type}",
-                "type": [
-                  "string"
-                ]
               }
             ]
           },
@@ -1179,8 +833,7 @@
           ],
           "enabled_by": "index_type",
           "enabled_by_value": [
-            "Azure CosmosDB for MongoDB vCore",
-            "MongoDB"
+            "Azure CosmosDB for MongoDB vCore"
           ],
           "dynamic_list": {
             "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_mongodb_databases",
@@ -1189,13 +842,6 @@
                 "name": "mongodb_connection",
                 "optional": false,
                 "reference": "${inputs.mongodb_connection}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "index_type",
-                "reference": "${inputs.index_type}",
                 "type": [
                   "string"
                 ]
@@ -1212,19 +858,11 @@
           ],
           "enabled_by": "index_type",
           "enabled_by_value": [
-            "Azure CosmosDB for MongoDB vCore",
-            "MongoDB"
+            "Azure CosmosDB for MongoDB vCore"
           ],
           "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_mongodb_embedding_fields",
+            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_mongodb_index_fields",
             "func_kwargs": [
-              {
-                "name": "index_type",
-                "reference": "${inputs.index_type}",
-                "type": [
-                  "string"
-                ]
-              },
               {
                 "name": "mongodb_connection",
                 "optional": false,
@@ -1245,6 +883,14 @@
                 "name": "mongodb_collection",
                 "optional": false,
                 "reference": "${inputs.mongodb_collection}",
+                "type": [
+                  "string"
+                ]
+              },
+              {
+                "default": "ARRAY(float)",
+                "name": "field_data_type",
+                "optional": false,
                 "type": [
                   "string"
                 ]
@@ -1296,47 +942,6 @@
           "is_multi_select": false,
           "input_type": "uionly_hidden"
         },
-        "mongodb_search_index": {
-          "type": [
-            "string"
-          ],
-          "enabled_by": "index_type",
-          "enabled_by_value": [
-            "MongoDB"
-          ],
-          "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_mongodb_search_indexes",
-            "func_kwargs": [
-              {
-                "name": "mongodb_connection",
-                "optional": false,
-                "reference": "${inputs.mongodb_connection}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "mongodb_database",
-                "optional": false,
-                "reference": "${inputs.mongodb_database}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "mongodb_collection",
-                "optional": false,
-                "reference": "${inputs.mongodb_collection}",
-                "type": [
-                  "string"
-                ]
-              }
-            ]
-          },
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "uionly_hidden"
-        },
         "oai_embedding_connection": {
           "type": [
             "OpenAIConnection"
@@ -1357,35 +962,6 @@
           "enabled_by_value": [
             "Pinecone"
           ],
-          "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_pinecone_index_fields",
-            "func_kwargs": [
-              {
-                "name": "pinecone_connection_name",
-                "optional": false,
-                "reference": "${inputs.pinecone_index_connection}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "pinecone_index_name",
-                "optional": false,
-                "reference": "${inputs.pinecone_index_name}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "pinecone_index_namespace",
-                "optional": false,
-                "reference": "${inputs.pinecone_index_namespace}",
-                "type": [
-                  "string"
-                ]
-              }
-            ]
-          },
           "allow_manual_entry": false,
           "is_multi_select": false,
           "input_type": "uionly_hidden"
@@ -1430,39 +1006,6 @@
           "is_multi_select": false,
           "input_type": "uionly_hidden"
         },
-        "pinecone_index_namespace": {
-          "type": [
-            "string"
-          ],
-          "enabled_by": "index_type",
-          "enabled_by_value": [
-            "Pinecone"
-          ],
-          "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_pinecone_index_namespaces",
-            "func_kwargs": [
-              {
-                "name": "pinecone_connection_name",
-                "optional": false,
-                "reference": "${inputs.pinecone_index_connection}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "pinecone_index_name",
-                "optional": false,
-                "reference": "${inputs.pinecone_index_name}",
-                "type": [
-                  "string"
-                ]
-              }
-            ]
-          },
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "uionly_hidden"
-        },
         "pinecone_metadata_field": {
           "type": [
             "string"
@@ -1471,265 +1014,6 @@
           "enabled_by_value": [
             "Pinecone"
           ],
-          "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_pinecone_index_fields",
-            "func_kwargs": [
-              {
-                "name": "pinecone_connection_name",
-                "optional": false,
-                "reference": "${inputs.pinecone_index_connection}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "pinecone_index_name",
-                "optional": false,
-                "reference": "${inputs.pinecone_index_name}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "pinecone_index_namespace",
-                "optional": false,
-                "reference": "${inputs.pinecone_index_namespace}",
-                "type": [
-                  "string"
-                ]
-              }
-            ]
-          },
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "uionly_hidden"
-        },
-        "postgres_connection": {
-          "type": [
-            "string"
-          ],
-          "enabled_by": "index_type",
-          "enabled_by_value": [
-            "Azure CosmosDB for PostgreSQL"
-          ],
-          "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_postgresql_connections"
-          },
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "uionly_hidden"
-        },
-        "postgres_content_field": {
-          "type": [
-            "string"
-          ],
-          "enabled_by": "index_type",
-          "enabled_by_value": [
-            "Azure CosmosDB for PostgreSQL"
-          ],
-          "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_postgresql_table_fields",
-            "func_kwargs": [
-              {
-                "name": "postgres_connection",
-                "optional": false,
-                "reference": "${inputs.postgres_connection}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "postgres_table_name",
-                "optional": false,
-                "reference": "${inputs.postgres_table_name}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "default": "character varying",
-                "name": "field_data_type",
-                "optional": false,
-                "type": [
-                  "string"
-                ]
-              }
-            ]
-          },
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "uionly_hidden"
-        },
-        "postgres_embedding_field": {
-          "type": [
-            "string"
-          ],
-          "enabled_by": "index_type",
-          "enabled_by_value": [
-            "Azure CosmosDB for PostgreSQL"
-          ],
-          "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_postgresql_table_fields",
-            "func_kwargs": [
-              {
-                "name": "postgres_connection",
-                "optional": false,
-                "reference": "${inputs.postgres_connection}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "postgres_table_name",
-                "optional": false,
-                "reference": "${inputs.postgres_table_name}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "default": "vector",
-                "name": "field_data_type",
-                "optional": false,
-                "type": [
-                  "string"
-                ]
-              }
-            ]
-          },
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "uionly_hidden"
-        },
-        "postgres_search_type": {
-          "type": [
-            "string"
-          ],
-          "enabled_by": "index_type",
-          "enabled_by_value": [
-            "Azure CosmosDB for PostgreSQL"
-          ],
-          "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_postgresql_search_types"
-          },
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "uionly_hidden"
-        },
-        "postgres_table_name": {
-          "type": [
-            "string"
-          ],
-          "enabled_by": "index_type",
-          "enabled_by_value": [
-            "Azure CosmosDB for PostgreSQL"
-          ],
-          "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_postgresql_tables",
-            "func_kwargs": [
-              {
-                "name": "postgres_connection",
-                "optional": false,
-                "reference": "${inputs.postgres_connection}",
-                "type": [
-                  "string"
-                ]
-              }
-            ]
-          },
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "uionly_hidden"
-        },
-        "qdrant_content_field": {
-          "type": [
-            "string"
-          ],
-          "enabled_by": "index_type",
-          "enabled_by_value": [
-            "Qdrant"
-          ],
-          "allow_manual_entry": true,
-          "is_multi_select": false,
-          "input_type": "uionly_hidden"
-        },
-        "qdrant_embedding_field": {
-          "type": [
-            "string"
-          ],
-          "enabled_by": "index_type",
-          "enabled_by_value": [
-            "Qdrant"
-          ],
-          "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_qdrant_fields_by_type",
-            "func_kwargs": [
-              {
-                "name": "qdrant_index_connection",
-                "optional": false,
-                "reference": "${inputs.qdrant_index_connection}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "qdrant_index_name",
-                "optional": false,
-                "reference": "${inputs.qdrant_index_name}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "default": "vector",
-                "name": "type_match",
-                "optional": false,
-                "type": [
-                  "string"
-                ]
-              }
-            ]
-          },
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "uionly_hidden"
-        },
-        "qdrant_index_connection": {
-          "type": [
-            "string"
-          ],
-          "enabled_by": "index_type",
-          "enabled_by_value": [
-            "Qdrant"
-          ],
-          "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_qdrant_connections"
-          },
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "uionly_hidden"
-        },
-        "qdrant_index_name": {
-          "type": [
-            "string"
-          ],
-          "enabled_by": "index_type",
-          "enabled_by_value": [
-            "Qdrant"
-          ],
-          "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_qdrant_indices",
-            "func_kwargs": [
-              {
-                "name": "qdrant_index_connection",
-                "optional": false,
-                "reference": "${inputs.qdrant_index_connection}",
-                "type": [
-                  "string"
-                ]
-              }
-            ]
-          },
           "allow_manual_entry": false,
           "is_multi_select": false,
           "input_type": "uionly_hidden"
@@ -1742,7 +1026,7 @@
           "is_multi_select": false,
           "input_type": "default",
           "value": "${inputs.query}",
-          "id": "6c1yxvv9"
+          "id": "qnmgom4c"
         },
         "query_type": {
           "type": [
@@ -1823,121 +1107,7 @@
           "is_multi_select": false,
           "input_type": "default",
           "value": "3",
-          "id": "d7i80ko5"
-        },
-        "weaviate_collection": {
-          "type": [
-            "string"
-          ],
-          "enabled_by": "index_type",
-          "enabled_by_value": [
-            "Weaviate"
-          ],
-          "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_weaviate_collections",
-            "func_kwargs": [
-              {
-                "name": "weaviate_connection",
-                "optional": false,
-                "reference": "${inputs.weaviate_connection}",
-                "type": [
-                  "string"
-                ]
-              }
-            ]
-          },
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "uionly_hidden"
-        },
-        "weaviate_connection": {
-          "type": [
-            "string"
-          ],
-          "enabled_by": "index_type",
-          "enabled_by_value": [
-            "Weaviate"
-          ],
-          "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_weaviate_connections"
-          },
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "uionly_hidden"
-        },
-        "weaviate_content_field": {
-          "type": [
-            "string"
-          ],
-          "enabled_by": "index_type",
-          "enabled_by_value": [
-            "Weaviate"
-          ],
-          "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_weaviate_collection_properties",
-            "func_kwargs": [
-              {
-                "name": "weaviate_connection",
-                "optional": false,
-                "reference": "${inputs.weaviate_connection}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "weaviate_collection",
-                "optional": false,
-                "reference": "${inputs.weaviate_collection}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "default": "DataType.TEXT",
-                "name": "field_data_type",
-                "optional": false,
-                "type": [
-                  "string"
-                ]
-              }
-            ]
-          },
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "uionly_hidden"
-        },
-        "weaviate_embedding_field": {
-          "type": [
-            "string"
-          ],
-          "enabled_by": "index_type",
-          "enabled_by_value": [
-            "Weaviate"
-          ],
-          "dynamic_list": {
-            "func_path": "promptflow_vectordb.tool.common_index_lookup_utils.list_weaviate_collection_vector_fields",
-            "func_kwargs": [
-              {
-                "name": "weaviate_connection",
-                "optional": false,
-                "reference": "${inputs.weaviate_connection}",
-                "type": [
-                  "string"
-                ]
-              },
-              {
-                "name": "weaviate_collection",
-                "optional": false,
-                "reference": "${inputs.weaviate_collection}",
-                "type": [
-                  "string"
-                ]
-              }
-            ]
-          },
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "uionly_hidden"
+          "id": "0r7cp49g"
         }
       },
       "description": "Search an AzureML Vector Index for relevant results using one or more text queries.",
@@ -1945,7 +1115,7 @@
       "function": "search",
       "is_builtin": true,
       "package": "promptflow_vectordb",
-      "package_version": "0.2.13",
+      "package_version": "0.2.10",
       "enable_kwargs": false,
       "tool_state": "stable",
       "toolId": "promptflow_vectordb.tool.common_index_lookup.search"
@@ -1962,7 +1132,7 @@
           "is_multi_select": false,
           "input_type": "default",
           "value": "${inputs.query}",
-          "id": "ebqtm0db"
+          "id": "u1jofwmm"
         },
         "ranker_parameters": {
           "type": [
@@ -2019,8 +1189,8 @@
           "allow_manual_entry": false,
           "is_multi_select": false,
           "input_type": "default",
-          "value": "${combine.output}",
-          "id": "a81ckleg"
+          "value": "${lookup.output}",
+          "id": "oz71me0x"
         },
         "serverless_deployment": {
           "type": [
@@ -2059,7 +1229,7 @@
           "is_multi_select": false,
           "input_type": "default",
           "value": "3",
-          "id": "hgu6gnf3"
+          "id": "xeyx3m4i"
         }
       },
       "description": "Aggregate and rerank one or more groups of retrieval results.",
@@ -2067,77 +1237,13 @@
       "function": "rerank",
       "is_builtin": true,
       "package": "promptflow_vectordb",
-      "package_version": "0.2.13",
+      "package_version": "0.0.1",
       "enable_kwargs": false,
       "tool_state": "preview",
       "toolId": "promptflow_vectordb.tool.rerank.rerank"
     }
   },
   "code": {
-    "google_search.py": {
-      "name": "google_search.py",
-      "type": "python",
-      "inputs": {
-        "query": {
-          "type": [
-            "string"
-          ],
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "default",
-          "value": "${inputs.query}",
-          "id": "aeqk6vua"
-        }
-      },
-      "source": "google_search.py",
-      "function": "my_python_tool",
-      "is_builtin": false,
-      "enable_kwargs": false,
-      "tool_state": "stable",
-      "toolId": "google_search.py"
-    },
-    "combine.py": {
-      "name": "combine.py",
-      "type": "python",
-      "inputs": {
-        "input1": {
-          "type": [
-            "list"
-          ],
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "default",
-          "value": "${lookup_1.output}",
-          "id": "3sdwojjb"
-        },
-        "input2": {
-          "type": [
-            "list"
-          ],
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "default",
-          "value": "${lookup_2.output}",
-          "id": "hkj1ydk5"
-        },
-        "input3": {
-          "type": [
-            "list"
-          ],
-          "allow_manual_entry": false,
-          "is_multi_select": false,
-          "input_type": "default",
-          "value": "${google_search.output}",
-          "id": "sixiae0c"
-        }
-      },
-      "source": "combine.py",
-      "function": "my_python_tool",
-      "is_builtin": false,
-      "enable_kwargs": false,
-      "tool_state": "stable",
-      "toolId": "combine.py"
-    },
     "extract_text.py": {
       "name": "extract_text.py",
       "type": "python",
@@ -2150,7 +1256,7 @@
           "is_multi_select": false,
           "input_type": "default",
           "value": "${rerank.output}",
-          "id": "j3beb12c"
+          "id": "i55z7gan"
         }
       },
       "source": "extract_text.py",
@@ -2172,7 +1278,7 @@
           "is_multi_select": false,
           "input_type": "default",
           "value": "${inputs.query}",
-          "id": "8zpv6b1u"
+          "id": "fc5ko1sa"
         },
         "sources": {
           "type": [
@@ -2182,7 +1288,7 @@
           "is_multi_select": false,
           "input_type": "default",
           "value": "${extract_text.output}",
-          "id": "6cak9liv"
+          "id": "sq1bvbj4"
         }
       },
       "source": "llm.jinja2",

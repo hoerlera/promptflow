@@ -76,4 +76,4 @@ nodes:
 node_variants: {}
 environment:
   python_requirements_txt: requirements.txt
-  image: 2bf2852be9c74fb9b7f0f33d76ce8843.azurecr.io/azureml/azureml_d403cbd9596743a7cd984ba5bca76583:latest
+  image: 2bf2852be9c74fb9b7f0f33d76ce8843.azurecr.io/azureml/azureml_0c17fe4fc5ec22ca77bbd0859308d0f3:latest
