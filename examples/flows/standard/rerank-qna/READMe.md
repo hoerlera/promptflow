@@ -17,7 +17,6 @@ In this flow, you will learn
 ## Tools used in this flow
 
 * LLM tool
-* Embedding tool
 * Vector Index Lookup tool
 * Rerank tool
 * Python tool
