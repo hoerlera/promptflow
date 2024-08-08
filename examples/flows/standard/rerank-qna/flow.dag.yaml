@@ -3,7 +3,7 @@ name: Index Data Rerank QnA
 inputs:
   query:
     type: string
-    default: ""
+    default: How to use SDK V2?
     is_chat_input: false
 outputs:
   answer:
